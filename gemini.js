@@ -16,7 +16,6 @@ async function main() {
         },
         systemInstruction:"answer upto 20 words"
     },
-
   });
   console.log(response.text);
 }
