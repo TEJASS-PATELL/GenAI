@@ -9,6 +9,7 @@ async function main() {
     model: "gemini-3-flash-preview",
     contents: "Explain how AI works in a few words",
     config:{
+        temperature: 0.5,
         thinkingConfig: {
             includeThoughts: true,
             thinkingBudget:100
