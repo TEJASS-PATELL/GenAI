@@ -1,11 +1,10 @@
 import { GoogleGenAI } from "@google/genai";
 import * as fs from "node:fs";
-import { configDotenv } from "dotenv"; // 1. Dotenv import karein
+import { configDotenv } from "dotenv"; 
 
-configDotenv(); // 2. Isse call karein taaki .env load ho jaye
+configDotenv(); 
 
 async function main() {
-    // Check karein ki key load hui ya nahi
     if (!process.env.geminiKey) {
         console.error("Error: .env file mein 'geminiKey' nahi mili!");
         return;
@@ -17,7 +16,7 @@ async function main() {
     try {
         const response = await ai.models.generateContent({
             model: "gemini-3.1-flash-image-preview",
-            contents: [{ role: 'user', parts: [{ text: prompt }] }], // Structure the prompt
+            contents: [{ role: 'user', parts: [{ text: prompt }] }], 
         });
 
         if (!response.candidates || response.candidates.length === 0) {
@@ -36,7 +35,6 @@ async function main() {
             }
         }
     } catch (error) {
-        // Agar quota limit hit hui toh yahan pata chal jayega
         console.error("API Error:", error.message);
     }
 }
